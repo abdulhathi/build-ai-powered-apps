@@ -17,3 +17,9 @@ bun create vite .
 ```bash
 bun install
 ```
+
+<!-- ^ Running both server and client apps together using concurrently -->
+Running both server and client apps together using concurrently
+```bash
+bun install concurrently
+```
