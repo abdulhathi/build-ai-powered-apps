@@ -33,3 +33,11 @@ bun install concurrently
 ```bash
 https://ui.shadcn.com/docs/installation
 ```
+
+<!-- ^ Setting up the husky and lint-staged for auto formatting when commit the changes in git -->
+
+```bash
+https://typicode.github.io/husky/
+https://github.com/lint-staged/lint-staged
+
+```
