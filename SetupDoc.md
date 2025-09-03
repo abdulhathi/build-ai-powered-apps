@@ -3,3 +3,17 @@ export OPENAI_API_KEY=1234
 
 <!-- ^ Setting up the environment variables in Windows -->
 set OPENAI_API_KEY=1234
+
+<!-- ^ Front End setup -->
+https://vite.dev/
+go to for "bun"
+create vite react typescript app on the same directory
+
+```bash
+bun create vite .
+```
+
+
+```bash
+bun install
+```
