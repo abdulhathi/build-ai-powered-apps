@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 
 app.get('/', (req: Request, res: Response) => {
   // console.log(process.env.OPENAI_API_KEY)
-  res.send(process.env.OPENAI_API_KEY)
+  res.send('Hi Hello')
 })
 
 app.listen(port, () => {
