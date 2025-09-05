@@ -41,3 +41,12 @@ https://typicode.github.io/husky/
 https://github.com/lint-staged/lint-staged
 
 ```
+
+<!-- ^ Using ZOD data validation tool used in React application -->
+Using ZOD data validation tool used in React application
+```bash
+bun add zod
+import z from 'zod'
+```
+
+Generate the UUID using the Generate UUID extension from the vs code extension pacakge.
