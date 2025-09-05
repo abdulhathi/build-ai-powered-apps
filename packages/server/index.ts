@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { response } from 'express'
 import type { Request, Response } from 'express'
 import dotenv from 'dotenv'
 import OpenAI from 'openai'
@@ -39,17 +39,20 @@ app.post('/api/chat', async (req: Request, res: Response) => {
     res.status(400).json(parseResult.error.format())
     return
   }
-  const { prompt, conversationId } = req.body
-
-  const response = await openAIClient.responses.create({
-    model: 'gpt-4.1-mini',
-    input: prompt,
-    temperature: 1,
-    previous_response_id: conversations.get(conversationId),
-    max_output_tokens: 100,
-  })
-  conversations.set(conversationId, response.id)
-  res.json({ message: response.output_text })
+  try {
+    const { prompt, conversationId } = req.body
+    const response = await openAIClient.responses.create({
+      model: 'gpt-4.1-mini',
+      input: prompt,
+      temperature: 1,
+      previous_response_id: conversations.get(conversationId),
+      max_output_tokens: 100,
+    })
+    conversations.set(conversationId, response.id)
+    res.json({ message: response.output_text })
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate a response.' })
+  }
 })
 
 app.listen(port, () => {
