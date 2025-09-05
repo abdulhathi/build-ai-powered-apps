@@ -50,3 +50,25 @@ import z from 'zod'
 ```
 
 Generate the UUID using the Generate UUID extension from the vs code extension pacakge.
+
+<b><u>Refactoring</u></b>
+<br>
+Crearing the layered architechture for scalable and maintainable application
+
+```bash
+Controller (Gateway receive the request and sends the response)
+```
+    |
+    V
+
+```bash
+Services (Application main logic. Input validation logic. Communicating the openai model and send and receive the reponse)
+```
+    |
+    V
+
+```bash
+Repositary (Data layer to store and retrive the data)
+```
+
+Moving all route definition to routes module that will keep our project more cleaner. If the routes are grow more it will be more complex in index modue.
