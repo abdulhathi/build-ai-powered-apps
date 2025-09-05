@@ -9,11 +9,18 @@
 - [x] Use the placeholder text in the text area 'Ask anything'
 
 ## Handling form submission
-- [ ] Installing react-hook-form in front-end
-- [ ] Create form data type with 'prompt'
-- [ ] Using the register, handleSubmit
-- [ ] Register the text area and destructure
-- [ ] Using the form
-- [ ] onSubmit to use the handleSubmit and reset the form
-- [ ] When key press 'Enter' button to submit
-- [ ] Disable button enable only if the form is valid.
+- [x] Installing react-hook-form in front-end
+- [x] Create form data type with 'prompt'
+- [x] Using the register, handleSubmit
+- [x] Register the text area and destructure
+- [x] Using the form
+- [x] onSubmit to use the handleSubmit and reset the form
+- [x] When key press 'Enter' button to call the handle submit
+- [x] Disable button enable only if the form is valid.
+- [x] Disable button even if the text area has the empty text.
+
+## Calling the backend
+- [x] Install the axios in client
+- [x] Calling the 'api/chat' endpoint
+- [x] use the cypto randomUUID for conversation id
+- [x] use the useRef hook to hold the randomUUID and Because useRef hook will not rerender component even when the value is keeps on changing. 
