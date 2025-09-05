@@ -1,6 +1,8 @@
 <h1 style="text-decoration:underline;">Chatbot front end development.</h1>
 
-## Building chatbot component
+## 4. Building the Front End
+
+## 4.1. Building chatbot component
 - [x] Create chatbot component in components
 - [x] Design the text area and send button
 - [x] Remove the border in text area and disable the resize.
@@ -8,7 +10,7 @@
 - [x] Use the react icons to decorate the up arrow button font
 - [x] Use the placeholder text in the text area 'Ask anything'
 
-## Handling form submission
+## 4.2. Handling form submission
 - [x] Installing react-hook-form in front-end
 - [x] Create form data type with 'prompt'
 - [x] Using the register, handleSubmit
@@ -19,8 +21,13 @@
 - [x] Disable button enable only if the form is valid.
 - [x] Disable button even if the text area has the empty text.
 
-## Calling the backend
+## 4.3. Calling the backend
 - [x] Install the axios in client
 - [x] Calling the 'api/chat' endpoint
 - [x] use the cypto randomUUID for conversation id
 - [x] use the useRef hook to hold the randomUUID and Because useRef hook will not rerender component even when the value is keeps on changing. 
+
+## 4.4. Rendering the messages
+- [x] Rendering chat response message in div.
+- [x] Receive the chat messages as ChatMessage type.
+- [x] Maintain the mssages in useState hook.
