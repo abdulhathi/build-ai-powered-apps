@@ -23,16 +23,20 @@ app.get('/api/hello', (req: Request, res: Response) => {
   res.json({ message: 'Hi Hello' })
 })
 
+let lastReponseId: string | null = null
+const conversations = new Map<string, string>()
+
 app.post('/api/chat', async (req: Request, res: Response) => {
-  const { prompt } = req.body
+  const { prompt, convId } = req.body
 
   const response = await openAIClient.responses.create({
-    model: 'gpt-5-mini',
+    model: 'gpt-4.1-mini',
     input: prompt,
     temperature: 1,
+    previous_response_id: conversations.get(convId),
     max_output_tokens: 100,
   })
-
+  conversations.set(convId, response.id)
   res.json({ message: response.output_text })
 })
 
