@@ -39,8 +39,8 @@
 - [x] Apply overall padding and margin to look better. 
   
 ## 4.6. Rendering Mark down text
-- [ ] Installing react-markdown
-- [ ] Render the content inside the markdown component
+- [x] Installing react-markdown
+- [x] Render the content inside the markdown component
 
 ## 4.7. Adding typing indicator
 - [ ] useState to maintain the aninmation start and end state

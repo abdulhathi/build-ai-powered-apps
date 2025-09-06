@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useRef, useState } from 'react'
 import classNames from 'classnames'
+import ReactMarkDown from 'react-markdown'
 
 type ChatFormData = {
   prompt: string
@@ -59,7 +60,7 @@ const ChatBot = () => {
               'px-3 py-1 rounded-2xl'
             )}
           >
-            {message.content}
+            <ReactMarkDown>{message.content}</ReactMarkDown>
           </p>
         ))}
       </div>
