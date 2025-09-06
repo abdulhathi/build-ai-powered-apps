@@ -134,4 +134,5 @@
 - 🏨 Hotel availability & booking  
 - 🌦️ Weather & indoor activities  
 - 🔍 Lost & found  
-- 📏 Height or age restrictions  
+- 📏 Height or age restrictions 
+- [Tickets](https://wonderworld.com/tickets)

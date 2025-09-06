@@ -1,6 +1,15 @@
 import OpenAI from 'openai'
 import { conversationRepository } from '../repositaries/conversation.repositary'
-import meeshTheDemon from '../prompt/template.txt'
+import meeshTheDemon from '../prompt/meeshTheBadDemon.txt'
+import wonderWorldPark from '../prompt/wonderWorld.txt'
+import fs from 'fs'
+import path from 'path'
+
+const parkInfo = fs.readFileSync(
+  path.join(__dirname, '..', 'prompt', 'WonderWorld.md'),
+  'utf-8'
+)
+const wonderWorldInstruction = wonderWorldPark.replace('{{parkInfo}}', parkInfo)
 
 const openAIClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -19,7 +28,7 @@ export const chatService = {
     const response = await openAIClient.responses.create({
       model: 'gpt-4.1-mini',
       input: prompt,
-      instructions: meeshTheDemon,
+      instructions: wonderWorldInstruction,
       temperature: 1,
       previous_response_id:
         conversationRepository.getLastResponseId(conversationId),

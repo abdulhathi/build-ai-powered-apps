@@ -30,7 +30,7 @@ const ChatMessages = ({ messages, lastMessageRef }: ChatMessagesProps) => {
               'self-start bg-gray-100': message.contentType === 'bot',
               'self-end bg-blue-600 text-white': message.contentType === 'user',
             },
-            'px-3 py-1 rounded-2xl'
+            'h-auto px-4 py-1 rounded-2xl prose'
           )}
           onCopy={onCopy}
           ref={lastMessageRef}

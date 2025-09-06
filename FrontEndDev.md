@@ -1,7 +1,7 @@
 ## Chatbot front end development.
-
+---
 ### 4. Building the Front End
-
+---
 #### 4.1. Building chatbot component
 - [x] Create chatbot component in components
 - [x] Design the text area and send button
@@ -72,7 +72,7 @@
 
 
 ### Prompt Engineering
-
+---
 #### Improving Chatbot Responses
 - [x] create the prompt text two summarize about the topic
 - [x] Load the summarized topic text file in to the server
@@ -85,3 +85,22 @@
 - [x] Reduce the object volume to 0.2
 - [x] Place the sount when prompt and response received.
 
+#### Exercise 1: Fixing Poorly Formatted Ticket Prices
+
+- [x] 1.Ask your chatbot: “How much are tickets?”
+- [x] 2.Pay attention to the response. Right now, it probably tries to dump a table into the chat - not very user-friendly!
+- [x] 3.Your challenge: update your prompt so the chatbot summarizes ticket prices in a simple list.
+- [x] 4.You might notice that when the chatbot outputs a bulleted list, the bullets don’t actually show up in your app. That’s because Tailwind removes default list styles. To  fix this, you can use the Tailwind Typographyplugin, which restores nice defaults for lists, headings, and other rich text
+
+#### Exercise 2: Adding a Ticket Link
+
+- [x] 1.Ask: “Where can I buy tickets?” or “How much are tickets?”
+- [x] 2.Notice that the chatbot gives you prices, but it doesn’t actually help you buy them.
+- [x] 3.Your task: refine the prompt so whenever tickets are mentioned, the chatbot includes this link: https://wonderworld.com/tickets
+
+#### Exercise 3: Adding a Ticket Link
+
+- [x] 1.Ask your chatbot: “What rides do you have?”
+- [x] 2.Notice how it just throws out a huge list for every age group. That’s overwhelming!
+- [x] 3.Your job: tweak the prompt so the chatbot first asks a quick clarifying question to identify the rider profile.
+- [x] 4.Once the user picks, the chatbot should only show the rides for that group. Much cleaner and more helpful. 
