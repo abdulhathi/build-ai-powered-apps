@@ -78,7 +78,7 @@
 - [x] Load the summarized topic text file in to the server
 - [x] pass the summarized text to the openAi client request instructions attribute
   
-#### Improving Chatbot Responses
+#### Adding sound effects
 - [x] Adding a sound files
 - [x] Import the sound file
 - [x] Create a seprate audio object for pop message and notifications
