@@ -1,5 +1,6 @@
 import OpenAI from 'openai'
 import { conversationRepository } from '../repositaries/conversation.repositary'
+import meeshTheDemon from '../prompt/template.txt'
 
 const openAIClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -18,6 +19,7 @@ export const chatService = {
     const response = await openAIClient.responses.create({
       model: 'gpt-4.1-mini',
       input: prompt,
+      instructions: meeshTheDemon,
       temperature: 1,
       previous_response_id:
         conversationRepository.getLastResponseId(conversationId),
