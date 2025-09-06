@@ -31,3 +31,40 @@
 - [x] Rendering chat response message in div.
 - [x] Receive the chat messages as ChatMessage type.
 - [x] Maintain the mssages in useState hook.
+  
+## 4.5. Styling messages
+- [x] Differentiate user and bot messages by defining a new type
+- [x] Style the user mesages to right with different color
+- [x] Style the bot messages to left with different color
+- [x] Apply overall padding and margin to look better. 
+  
+## 4.6. Rendering Mark down text
+- [ ] Installing react-markdown
+- [ ] Render the content inside the markdown component
+
+## 4.7. Adding typing indicator
+- [ ] useState to maintain the aninmation start and end state
+- [ ] Using tailwind animate pulse, animation delay to aribitrary value delay the animation
+
+## 4.8. Auto scrolling to the latest message
+- [ ] declare a useRef hook with the refence of HTMLFormElement
+- [ ] refer the declared useRef hook in to the form
+- [ ] Create a new useEffect hook. And inside hook the formRef element to behave smooth scrolling whenever the change of messages.
+
+## 4.9. Improving copy behaviour
+- [ ] Window.getSelection method to select and trim the selected text
+- [ ] onCopy event from the paragraph element to set the clipboard data to the trimmed selected values as 'text/plain' format.
+- [ ] prevent default to the deffault behaviour in onCopy Event
+  
+## 4.10. Imporoving the look and feel
+- [ ] Apply horizontal view port height to the app level
+- [ ] Keep text area and button container div bottom of the page
+- [ ] Change the auto scroll to chat message div
+- [ ] Change the paragraph element to div element because of error showing the 'ol' element inside the 'p' element.
+- [ ] Set the auto focus to the textarea by default
+  
+## 4.11. Handling Errors
+- [ ] Handle the error using the try catch block inside the handleSubmit
+- [ ] Make some changes on the api side to create an error
+- [ ] useState hook to have the error message and display after the loading indicator.
+- [ ] Clear the error message every time when make the request.

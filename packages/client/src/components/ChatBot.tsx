@@ -3,28 +3,41 @@ import { Button } from './ui/button'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useRef, useState } from 'react'
+import classNames from 'classnames'
 
 type ChatFormData = {
   prompt: string
 }
 
-type ChatMessage = {
+type ChatResponse = {
   message: string
 }
 
+type ChatMessage = {
+  content: string
+  contentType: 'user' | 'bot'
+}
+
 const ChatBot = () => {
-  const [messages, setMessages] = useState<string[]>([])
+  const [messages, setMessages] = useState<ChatMessage[]>([])
+
   const { register, handleSubmit, reset, formState } = useForm<ChatFormData>()
   const uuid = useRef(crypto.randomUUID())
 
   const onSubmit = async ({ prompt }: ChatFormData) => {
     reset()
-    setMessages((prevMessages) => [...prevMessages, prompt])
-    const { data } = await axios.post<ChatMessage>('/api/chat', {
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { content: prompt, contentType: 'user' },
+    ])
+    const { data } = await axios.post<ChatResponse>('/api/chat', {
       prompt: prompt,
       conversationId: uuid.current,
     })
-    setMessages((prevMessages) => [...prevMessages, data.message])
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { content: data.message, contentType: 'bot' },
+    ])
   }
   const onKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -34,9 +47,20 @@ const ChatBot = () => {
   }
   return (
     <div>
-      <div>
+      <div className="flex flex-col gap-3 items-end py-10">
         {messages.map((message, index) => (
-          <p key={index}>{message}</p>
+          <p
+            key={index}
+            className={classNames(
+              {
+                'self-start bg-gray-100': message.contentType === 'bot',
+                'bg-blue-600 text-white': message.contentType === 'user',
+              },
+              'px-3 py-1 rounded-2xl'
+            )}
+          >
+            {message.content}
+          </p>
         ))}
       </div>
       <form
