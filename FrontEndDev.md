@@ -43,13 +43,14 @@
 - [x] Render the content inside the markdown component
 
 ## 4.7. Adding typing indicator
-- [ ] useState to maintain the aninmation start and end state
-- [ ] Using tailwind animate pulse, animation delay to aribitrary value delay the animation
+- [x] useState to maintain the aninmation when bot typing
+- [x] set bot typing state value true and false
+- [x] Using tailwind animate pulse and animation delay aribitrary value delay the animation.
 
 ## 4.8. Auto scrolling to the latest message
-- [ ] declare a useRef hook with the refence of HTMLFormElement
-- [ ] refer the declared useRef hook in to the form
-- [ ] Create a new useEffect hook. And inside hook the formRef element to behave smooth scrolling whenever the change of messages.
+- [x] declare a useRef hook with the refence of HTMLFormElement
+- [x] refer the declared useRef hook in to the form
+- [x] Create a new useEffect hook. And inside hook the formRef element to behave smooth scrolling whenever the change of messages.
 
 ## 4.9. Improving copy behaviour
 - [ ] Window.getSelection method to select and trim the selected text

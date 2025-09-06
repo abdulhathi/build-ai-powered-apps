@@ -2,7 +2,7 @@ import { FaArrowUp } from 'react-icons/fa'
 import { Button } from './ui/button'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import ReactMarkDown from 'react-markdown'
 
@@ -21,11 +21,17 @@ type ChatMessage = {
 
 const ChatBot = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([])
-
+  const [isBotTyping, setIsBotTyping] = useState<boolean>(false)
   const { register, handleSubmit, reset, formState } = useForm<ChatFormData>()
   const uuid = useRef(crypto.randomUUID())
+  const formRef = useRef<HTMLFormElement | null>(null)
+
+  useEffect(() => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
 
   const onSubmit = async ({ prompt }: ChatFormData) => {
+    setIsBotTyping(true)
     reset()
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -39,6 +45,7 @@ const ChatBot = () => {
       ...prevMessages,
       { content: data.message, contentType: 'bot' },
     ])
+    setIsBotTyping(false)
   }
   const onKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -63,11 +70,19 @@ const ChatBot = () => {
             <ReactMarkDown>{message.content}</ReactMarkDown>
           </p>
         ))}
+        {isBotTyping && (
+          <div className="self-start flex gap-1">
+            <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay: 0.2s]"></div>
+            <div className="w-2 h-2 bg-gray-800 rounded-full animate-pulse [animation-delay: 0.4s]"></div>
+          </div>
+        )}
       </div>
       <form
         className="flex flex-col items-end border-2 gap-2 rounded-2xl p-2"
         onSubmit={handleSubmit(onSubmit)}
         onKeyDown={onKeyDown}
+        ref={formRef}
       >
         <textarea
           {...register('prompt', {

@@ -21,7 +21,7 @@ export const chatService = {
       temperature: 1,
       previous_response_id:
         conversationRepository.getLastResponseId(conversationId),
-      max_output_tokens: 100,
+      max_output_tokens: 200,
     })
     conversationRepository.setLastResponseId(conversationId, response.id)
     return { id: response.id, message: response.output_text }
