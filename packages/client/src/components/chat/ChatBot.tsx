@@ -4,12 +4,19 @@ import TypingIndicator from './TypingIndicator'
 import type { ChatMessage } from './ChatMessages'
 import ChatMessages from './ChatMessages'
 import ChatInput, { type ChatFormData } from './ChatInput'
+import pop from '../../assets/sounds/pop.mp3'
+import notification from '../../assets/sounds/notification.mp3'
 
 type ChatResponse = {
   message: string
 }
 
 const ChatBot = () => {
+  const popAudio = new Audio(pop)
+  popAudio.volume = 0.2
+  const notificationAudio = new Audio(notification)
+  notificationAudio.volume = 0.2
+
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [isBotTyping, setIsBotTyping] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<string>('')
@@ -22,6 +29,7 @@ const ChatBot = () => {
 
   const handleChatMessages = async ({ prompt }: ChatFormData) => {
     try {
+      popAudio.play()
       setErrorMessage('')
       setIsBotTyping(true)
       setMessages((prevMessages) => [
@@ -41,6 +49,7 @@ const ChatBot = () => {
       setErrorMessage('Something went wrong!')
     } finally {
       setIsBotTyping(false)
+      notificationAudio.play()
     }
   }
 

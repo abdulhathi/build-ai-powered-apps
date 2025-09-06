@@ -79,5 +79,9 @@
 - [x] pass the summarized text to the openAi client request instructions attribute
   
 #### Improving Chatbot Responses
-- [ ] 
+- [x] Adding a sound files
+- [x] Import the sound file
+- [x] Create a seprate audio object for pop message and notifications
+- [x] Reduce the object volume to 0.2
+- [x] Place the sount when prompt and response received.
 
