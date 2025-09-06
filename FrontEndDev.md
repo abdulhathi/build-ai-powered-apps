@@ -53,9 +53,9 @@
 - [x] Create a new useEffect hook. And inside hook the formRef element to behave smooth scrolling whenever the change of messages.
 
 ## 4.9. Improving copy behaviour
-- [ ] Window.getSelection method to select and trim the selected text
-- [ ] onCopy event from the paragraph element to set the clipboard data to the trimmed selected values as 'text/plain' format.
-- [ ] prevent default to the deffault behaviour in onCopy Event
+- [x] Window.getSelection method to select and trim the selected text
+- [x] onCopy event from the paragraph element to set the clipboard data to the trimmed selected values as 'text/plain' format.
+- [x] prevent default to the deffault behaviour in onCopy Event
   
 ## 4.10. Imporoving the look and feel
 - [ ] Apply horizontal view port height to the app level

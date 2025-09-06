@@ -53,6 +53,13 @@ const ChatBot = () => {
       handleSubmit(onSubmit)()
     }
   }
+  const onCopy = (e: React.ClipboardEvent<HTMLParagraphElement>) => {
+    const selectedContent = window.getSelection()?.toString().trim()
+    if (selectedContent) {
+      e.preventDefault()
+      e.clipboardData.setData('text/plain', selectedContent)
+    }
+  }
   return (
     <div>
       <div className="flex flex-col gap-3 items-end py-10">
@@ -66,6 +73,7 @@ const ChatBot = () => {
               },
               'px-3 py-1 rounded-2xl'
             )}
+            onCopy={onCopy}
           >
             <ReactMarkDown>{message.content}</ReactMarkDown>
           </p>
