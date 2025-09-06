@@ -58,14 +58,14 @@
 - [x] prevent default to the deffault behaviour in onCopy Event
   
 ## 4.10. Imporoving the look and feel
-- [ ] Apply horizontal view port height to the app level
-- [ ] Keep text area and button container div bottom of the page
-- [ ] Change the auto scroll to chat message div
-- [ ] Change the paragraph element to div element because of error showing the 'ol' element inside the 'p' element.
-- [ ] Set the auto focus to the textarea by default
+- [x] Apply horizontal view port height to the app level
+- [x] Keep text area and button container div bottom of the page
+- [x] Change the auto scroll to chat message div
+- [x] Change the paragraph element to div element because of error showing the 'ol' element inside the 'p' element.
+- [x] Set the auto focus to the textarea by default
   
 ## 4.11. Handling Errors
-- [ ] Handle the error using the try catch block inside the handleSubmit
-- [ ] Make some changes on the api side to create an error
-- [ ] useState hook to have the error message and display after the loading indicator.
-- [ ] Clear the error message every time when make the request.
+- [x] Handle the error using the try catch block inside the handleSubmit
+- [x] Make some changes on the api side to create an error
+- [x] useState hook to have the error message and display after the loading indicator.
+- [x] Clear the error message every time when make the request.
