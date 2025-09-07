@@ -104,3 +104,59 @@
 - [x] 2.Notice how it just throws out a huge list for every age group. That’s overwhelming!
 - [x] 3.Your job: tweak the prompt so the chatbot first asks a quick clarifying question to identify the rider profile.
 - [x] 4.Once the user picks, the chatbot should only show the rides for that group. Much cleaner and more helpful. 
+
+
+## Building a review summarizer
+---
+### Setting up the database for (Chat bot)
+---
+#### 1. Setting up My SQL
+- [x] Download the mysql community version and install it for mac
+- [x] export the path using the command export PATH="/usr/local/mysql/bin:$PATH"
+- [x] refresh the source file using the command source ~/.zshrc 
+- [x] Verify mysql using 'mysql -u root -p' command and enter pwd
+- [x] mysql --version
+
+#### 2. Setup Prisma
+- [x] Needs to install / setup. Prisma is ORM(Object Relational Mapper). It's  sits between the application and database.
+- [x] bun add -d prisma, bun add @prisma/client and bunx prisma init
+- [x] Install prisma vs code extension.
+- [x] Open the prisma schema file and copythe database_URL key
+- [x] Setup the database url env value as 'mysql://root:[password]@localhost:3306/[dbname]
+
+#### 3. Defining Prisma schema
+- [x] Create prisma schema model for product (id Int @id @default autoincreament)
+- [x] Product(name, description?, price, review Review[])
+- [x] Model for review (id @int @default(autoincreament), author, rating, content, createdAt datetime default(now), productid)
+- [x] reference Product in review table using product Product @relation(fields: [productId], references: [id])
+- [x] Create Summary model (id, productId, product, content, generatedAt, expiresAt)
+- [x] Here productId should have the @unique attribute
+- [x] Product should have relation with Summary? field it should be optional
+- [x] Finally save and format it. If it's not formatting command palet to format and select prisma formating
+
+#### 3. Running migration
+- [x] Prisma cli to running migration (bunx prisma migrate dev)
+- [x] And provide the migration name as 'init'
+- [x] Once migration completed you could see the migration file
+- [x] Install JetBrians Datagrip tool
+- [x] Create a new poject name of '@localhost'
+- [x] And add select the mysql and enter password see the migrated schema
+
+#### 4. Refining the Prisma schema
+- [x] @@map([tablename]) attribute to pluralise and lowercase the table names
+- [x] @db attribute to increase varchar size to 255 
+- [x] Review table change the rating datatype to @db.TinyInt since we are storying 1,2,3,4,5 values
+- [x] Description, contant table fields datatype should changed @@db.text
+- [x] Run the prisma migration command
+- [x] And new migration name should be 'refine-schema'
+
+#### 5. Populating the database with realistic data
+- [x] Using the chatgpt to generate the data
+- [x] Copy and paste the schema in chatgpt
+- [x] And 'Generate complete sql script to populate the products and reviews tables in the MYSQL database based on the schema above'
+- [x] Also provide some more below instruction to chatgpt before generate
+- [x] '- Create 5 products'
+- [x] '- Each product insert 5 realistic customer reivew'
+- [x] '- Make sure each reivew is long and tailored with product type'
+- [x] '- Do not include the data for summaries table'
+- [x] '- Output only the SQL script. No comments and explnations.'
