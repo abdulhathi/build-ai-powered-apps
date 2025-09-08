@@ -30,12 +30,14 @@ export const reviewService = {
       combinedReview
     )
 
-    const response = await LLMClient.generateLLMResponse({
-      prompt,
-    })
+    // const response = await LLMClient.generateLLMResponse({
+    //   prompt,
+    // })
 
-    await summaryRepository.upsertSummary(productId, response.message)
+    const message = await LLMClient.generateOllamaText(prompt)
 
-    return response.message
+    await summaryRepository.upsertSummary(productId, message)
+
+    return message
   },
 }

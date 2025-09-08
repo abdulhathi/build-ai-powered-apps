@@ -173,3 +173,58 @@
   3. Valid product id but no reviews.  
 - [x] Fetching the summary with reviews
 - [x] If the product not exist return 404 product does not exist error message.
+
+
+## Building the frontend for show review and summary
+
+#### 4.1 Display reviews
+- [ ] Fetch the reviews and summary
+- [ ] Using Axios to fetch the reviews.
+- [ ] Display the author, rating and review content
+- [ ] Apply some styles
+#### 4.2 Display star ratings
+- [ ] Create the rating component
+- [ ] use fa fill start and un fill start
+- [ ] Use the component in reviews
+#### 4.3 Display loading skeletons
+- [ ] Install bun add react-loading-skeleton
+- [ ] useState to have the loading value
+- [ ] set network throttling to slow 4g
+- [ ] apply the skeletons to review screen
+#### 4.4 Handling errors
+- [ ] Any api response error happens
+- [ ] useState hook to hold the error
+- [ ] try catch block to catch the error
+- [ ] And Diplay the error under the skeleton
+#### 4.5 Introducing Tanstack query
+- [ ] bun add react-query-client
+- [ ] setup the querycient provider at the root element
+- [ ] assign the query client to the client props in the provider
+- [ ] Using the useQuery hook and hold key as 'review+productid and value as fetchquery function
+- [ ] Remove the try catch block and use the error from query client
+#### 4.6 Display the summary 
+- [ ] Display the summary text if summary exist
+- [ ] Othewise Display the summarize button with sparkels font awesome icon
+- [ ] Also not to display the button if no review exist
+#### 4.7 Triggering the summayr generation
+- [ ] Call the summary api to fetch the summary
+- [ ] useState to hold the summary and render
+- [ ] If review data summary or state hook summary
+#### 4.8 Display skeleton for summary loading
+- [ ] Createt the skeleton as seperate component
+- [ ] useState hook set the loading true or fale when fetchsummary
+- [ ] Reuse this under the button for show loading
+#### 4.9 Handling errors for summary loading
+- [ ] try catch block to check and display error
+- [ ] Display error with the help of store the value in useState
+#### 4.10 Refactoring mutations for fetchsummary
+- [ ] use the fetchsummary mutations
+- [ ] Show loading, button click
+- [ ] display the summary
+#### 4.11 Refactoring for readability
+- [ ] directly using the summarymutation
+- [ ] directly using the reviewquery
+#### 4.12 Extracting the api layer
+- [ ] Move axios api call to seperate module
+- [ ] Move the types to the module and export 
+- [ ] Use the mutation and query call from api module

@@ -1,4 +1,5 @@
 import OpenAI from 'openai'
+import ollama from 'ollama'
 
 const openAIClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -37,5 +38,14 @@ export const LLMClient = {
     })
 
     return { id: response.id, message: response.output_text }
+  },
+
+  async generateOllamaText(prompt: string): Promise<string> {
+    const response = await ollama.chat({
+      model: 'llama3.1',
+      messages: [{ role: 'user', content: prompt }],
+    })
+    console.log(response)
+    return response.message.content
   },
 }
