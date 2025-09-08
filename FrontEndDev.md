@@ -114,6 +114,7 @@
 - [x] Download the mysql community version and install it for mac
 - [x] export the path using the command export PATH="/usr/local/mysql/bin:$PATH"
 - [x] refresh the source file using the command source ~/.zshrc 
+- [x] run the command in terminal 'mysql_secure_installation'. This command used to set the root password.
 - [x] Verify mysql using 'mysql -u root -p' command and enter pwd
 - [x] mysql --version
 
@@ -134,7 +135,7 @@
 - [x] Product should have relation with Summary? field it should be optional
 - [x] Finally save and format it. If it's not formatting command palet to format and select prisma formating
 
-#### 3. Running migration
+#### 4. Running migration
 - [x] Prisma cli to running migration (bunx prisma migrate dev)
 - [x] And provide the migration name as 'init'
 - [x] Once migration completed you could see the migration file
@@ -142,7 +143,7 @@
 - [x] Create a new poject name of '@localhost'
 - [x] And add select the mysql and enter password see the migrated schema
 
-#### 4. Refining the Prisma schema
+#### 5. Refining the Prisma schema
 - [x] @@map([tablename]) attribute to pluralise and lowercase the table names
 - [x] @db attribute to increase varchar size to 255 
 - [x] Review table change the rating datatype to @db.TinyInt since we are storying 1,2,3,4,5 values
@@ -150,7 +151,7 @@
 - [x] Run the prisma migration command
 - [x] And new migration name should be 'refine-schema'
 
-#### 5. Populating the database with realistic data
+#### 6. Populating the database with realistic data
 - [x] Using the chatgpt to generate the data
 - [x] Copy and paste the schema in chatgpt
 - [x] And 'Generate complete sql script to populate the products and reviews tables in the MYSQL database based on the schema above'
@@ -160,3 +161,15 @@
 - [x] '- Make sure each reivew is long and tailored with product type'
 - [x] '- Do not include the data for summaries table'
 - [x] '- Output only the SQL script. No comments and explnations.'
+
+
+#### 7. Extracting the prompt in to template
+- [x] Instead of the hard coded prompt and concatenate the summary. Move them in to the text template.
+- [x] Storing the summary with 7 days expiry
+- [x] If the summary expires only generate the summary again
+- [x] Handling the below edge cases
+  1. Non-numeric product id
+  2. Numeric product id but invalid
+  3. Valid product id but no reviews.  
+- [x] Fetching the summary with reviews
+- [x] If the product not exist return 404 product does not exist error message.

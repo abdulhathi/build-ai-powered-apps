@@ -1,26 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the `Product` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `Review` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `Summary` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropForeignKey
-ALTER TABLE `Review` DROP FOREIGN KEY `Review_productId_fkey`;
-
--- DropForeignKey
-ALTER TABLE `Summary` DROP FOREIGN KEY `Summary_productId_fkey`;
-
--- DropTable
-DROP TABLE `Product`;
-
--- DropTable
-DROP TABLE `Review`;
-
--- DropTable
-DROP TABLE `Summary`;
-
 -- CreateTable
 CREATE TABLE `products` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
@@ -35,7 +12,7 @@ CREATE TABLE `products` (
 CREATE TABLE `reviews` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `author` VARCHAR(255) NOT NULL,
-    `rating` TINYINT NOT NULL,
+    `rating` SMALLINT NOT NULL,
     `content` TEXT NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `productId` INTEGER NOT NULL,
